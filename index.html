@@ -1,0 +1,279 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>index</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<link rel="stylesheet" href="css/comon0.css">
+<style>
+/* 按钮样式 */
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.nav-buttons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 0 15px;
+  cursor: pointer;
+  background-color: #4CAF50; /* 绿色背景 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-buttons button:hover {
+  background-color: #45a049; /* 鼠标悬停时的效果 */
+}
+
+/* 页尾样式 */
+footer {
+
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+footer .copyright {
+  margin: 10px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="loading">
+  <div class="loadbox"> <img src="images/loading.gif"> 页面加载中... </div>
+</div>
+<div class="head">
+  <h1>中国古代自然科学成就一览</h1>
+  <div class="time" id="showTime">2025/5/1 0:12:42</div>
+
+		<script>
+var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+		var t = null;
+       document.getElementById("showTime").innerHTML = y+"/"+Appendzero(mt)+"/"+Appendzero(day)+" "+Appendzero(h)+":"+Appendzero(m)+":"+Appendzero(s)+"";
+        function Appendzero(obj){
+			if(obj<10) return "0" +""+ obj;
+			else return obj;
+		 }
+		t = setTimeout(time,1000); //设定定时器，循环运行
+    }
+
+</script>
+
+</div>
+<div class="mainbox">
+  <ul class="clearfix">
+    <li>
+      <div class="boxall" style="height: calc(40% - .15rem)">
+        <div class="alltitle">核心成就</div>
+        <div class="sycm">
+          <ul class="clearfix">
+            <li>
+                <h2><a href="单独介绍/蔡伦造纸.html">造纸术</a></h2>
+              </li>
+            <li>
+              <h2><a href="单独介绍/活字印刷.html">印刷术</a></h2>
+              </li>
+            <li>
+              <h2><a href="单独介绍/火药.html">火药</a></h2>
+              </li>
+
+            <li>
+              <h2><a href="单独介绍/司南.html">指南针</a></h2>
+              </li>
+
+          </ul>
+        </div>
+        <div class="boxfoot"></div>
+      </div>
+      <div class="boxall" style="height: calc(60% - .15rem)">
+        <div class="alltitle">中国古代重要科技发明创造</div>
+   <div class="sycm sycm2">
+          <ul class="clearfix">
+            <li>
+              <h2>30项</h2>
+              <span>科学发现与创造</span></li>
+            <li>
+              <h2>45项</h2>
+              <span>技术发明</span></li>
+            <li>
+              <h2>13项</h2>
+              <span>工程成就</span></li>
+
+
+
+          </ul>
+        </div>
+        <div class="boxfoot"></div>
+      </div>
+
+    </li>
+    <li>
+     <div style="position: relative">
+		<div class="barnav">
+
+			 <div class="bar">
+        <div class="barbox">
+          <ul class="clearfix">
+            <li class="pulll_left counter">56</li>
+            <li class="pulll_left counter">4</li>
+            <li class="pulll_left counter">38</li>
+          </ul>
+        </div>
+        <div class="barbox2">
+          <ul class="clearfix">
+            <li class="pulll_left">重要发明</li>
+            <li class="pulll_left">改变世界的成就</li>
+            <li class="pulll_left">书籍文献</li>
+          </ul>
+        </div>
+
+      </div>
+		</div>
+		 </div>
+      <div class="mapbox">
+		<div class="map">
+        <div class="map1"><img src="images/lbx.png"></div>
+        <div class="map2"><img src="images/jt.png"></div>
+        <div class="map3"><img src="images/map.png"></div>
+        <div class="map4" id="map_1"></div>
+      </div>
+		</div>
+    </li>
+    <li>
+
+		<div class="boxall" style="height: calc(50% - .15rem)">
+        <div class="alltitle">各科学领域成果完成度对比 <div class="pulll_right">
+			<a href="#"><span></span>已完成</a>
+			<a href="#"><span></span>未完成</a>
+			</div></div>
+
+        <div class="boxnav" id="echart3"></div>
+
+        <div class="boxfoot"></div>
+      </div>
+      <div class="boxall" style="height: calc(50% - .15rem)">
+    <div class="alltitle">古代科学名著</div>
+    <div class="wrap boxnav">
+        <ul>
+            <ul>
+                <li><p><a href="https://baike.baidu.com/item/%E5%91%A8%E9%AB%80%E7%AE%97%E7%BB%8F/956191"><span>《周髀算经》</span></a><span>作者不明</span><span>西汉</span></p></li>
+                <li><p><a href="https://baike.baidu.com/item/%E7%94%98%E7%9F%B3%E6%98%9F%E7%BB%8F/818251"><span>《甘石星经》</span></a><span>甘德、石申</span><span>战国</span></p></li>
+                <li><p><a href="单独介绍/浑天仪.html"><span>《浑天仪说》</span></a><span>张衡</span><span>东汉</span></p></li>
+                <li><p><a href="https://baike.baidu.com/item/%E6%8E%88%E6%97%B6%E5%8E%86/1130065"><span>《授时历》</span></a><span>郭守敬</span><span>元代</span></p></li>
+                <li><p><a href="单独介绍/九章算术.html"><span>《九章算术》</span></a><span>作者不详</span><span>西汉</span></p></li>
+                <li><p><a href="https://baike.baidu.com/item/%E6%B5%B7%E5%B2%9B%E7%AE%97%E7%BB%8F/7691173"><span>《海岛算经》</span></a><span>刘徽</span><span>三国</span></p></li>
+                <li><p><a href="https://baike.baidu.com/item/%E7%AE%97%E7%BB%8F%E5%8D%81%E4%B9%A6/3270695"><span>《算经十书》</span></a><span>唐代</span><span>唐代</span></p></li>
+                <li><p><a href="单独介绍/水经注.html"><span>《水经注》</span></a><span>郦道元</span><span>北魏</span></p></li>
+                <li><p><a href="https://baike.baidu.com/item/%E6%A2%A6%E6%BA%AA%E7%AC%94%E8%B0%88/705183"><span>《梦溪笔谈》</span></a><span>沈括</span><span>北宋</span></p></li>
+                <li><p><a href="https://baike.baidu.com/item/%E9%BB%84%E5%B8%9D%E5%86%85%E7%BB%8F/97915"><span>《黄帝内经》</span></a><span>战国至西汉</span><span>战国</span></p></li>
+                <li><p><a href="https://baike.baidu.com/item/%E4%BC%A4%E5%AF%92%E6%9D%82%E7%97%85%E8%AE%BA/1125995"><span>《伤寒杂病论》</span></a><span>张仲景</span><span>东汉</span></p></li>
+                <li><p><a href="https://baike.baidu.com/item/%E7%A5%9E%E5%86%9C%E6%9C%AC%E8%8D%89%E7%BB%8F/302460"><span>《神农本草经》</span></a><span>神农氏</span><span>东汉</span></p></li>
+                <li><p><a href="单独介绍/本草纲目.html"><span>《本草纲目》</span></a><span>李时珍</span><span>明代</span></p></li>
+                <li><p><a href="单独介绍/齐民要术.html"><span>《齐民要术》</span></a><span>贾思勰</span><span>北魏</span></p></li>
+                <li><p><a href="单独介绍/农政全书.html"><span>《农政全书》</span></a><span>徐光启</span><span>明代</span></p></li>
+                <li><p><a href="单独介绍/天工开物.html"><span>《天工开物》</span></a><span>宋应星</span><span>明代</span></p></li>
+                <li><p><a href="https://baike.baidu.com/item/%E5%A2%A8%E7%BB%8F/3533524"><span>《墨经》</span></a><span>墨子及其门徒</span><span>战国</span></p></li>
+            </ul>
+        </ul>
+    </div>
+</div>
+
+        <div class="boxfoot"></div>
+      </div>
+    </li>
+  </ul>
+  <div class="copyright">地图审图号为：GS（2024）0650号</div>
+</div>
+
+	<div class="mainbox2">
+  <ul class="clearfix">
+    <li>
+
+		<div class="boxall" style="height: 100%">
+        <div class="alltitle">中国科技成就在世界上的比重
+			<div class="pulll_right">
+			<a href="#"><span></span>中国</a>
+			<a href="#"><span></span>国外</a>
+			</div>
+			</div>
+       <div class="boxnav">
+		  <ul class="btbox">
+		   <li id="bt01"></li>
+		   <li id="bt02"></li>
+		   <li id="bt03"></li>
+		   <li id="bt04"></li>
+           <li id="bt05"></li>
+		   </ul>
+		  </div>
+        <div class="boxfoot"></div>
+      </div>
+
+    </li>
+	  <li>
+		  <div class="boxall" style="height:100%">
+        <div class="alltitle">各朝代科技发展
+			  <div class="pulll_right sebtn" >
+			<a href="#" class="active">年代</a>
+
+			</div>
+			  </div>
+         <div class="boxnav" id="echart4"></div>
+
+
+        <div class="boxfoot"></div>
+      </div>
+	  </li>
+
+		</ul>
+		</div>
+
+<script language="JavaScript" src="js/js.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript" src="js/china.js"></script>
+<script type="text/javascript" src="js/area_echarts.js"></script>
+<script src="js/jquery.liMarquee.js"></script>
+<script>
+$(function(){
+	$('.wrap,.adduser').liMarquee({
+		direction: 'up',//身上滚动
+		runshort: false,//内容不足时不滚动
+		scrollamount: 20//速度
+	});
+});
+
+</script>
+
+<script type="text/javascript">
+		$('.counter').countUp();
+  </script>
+
+<footer>
+  <div class="nav-buttons">
+    <button onclick="window.location.href='主页/首页.html'">回到首页</button>
+    <button onclick="window.location.href='单独介绍/词云.html'">查看词云</button>
+  </div>
+
+</footer>
+</body>
+</html>
