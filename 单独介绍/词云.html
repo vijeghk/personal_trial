@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>中国古代自然科学成就词云</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "微软雅黑", sans-serif;
+      background: linear-gradient(to bottom right, rgba(255, 204, 102, 0.6), rgba(18, 18, 18, 0.5));
+      color: #000;
+    }
+
+    .wrap {
+      max-width: 1800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    .hefont {
+      font-size: 36px;
+      font-weight: bold;
+      color: #003366;
+    }
+
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .tagBall {
+      flex: 2;
+      min-width: 900px;
+      height: 800px;
+      position: relative;
+      background-color: rgba(255,255,255,0.6);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .tag {
+      position: absolute;
+      left: 0;
+      top: 0;
+      text-decoration: none;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .tag:hover {
+      border: 1px solid #666;
+    }
+
+    .tag span {
+      display: inline-block;
+    }
+
+    .reference-box {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(255, 204, 102, 0.6);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      max-height: 800px;
+    }
+
+    .reference-box h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #003366;
+    }
+
+    .reference-box ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    .reference-box li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    footer.page-footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+
+    .reference-box a {
+  text-decoration: none;
+  color: #333;
+}
+
+.reference-box a:visited {
+  color: #333;
+}
+
+.reference-box a:hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+    .button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .btn {
+      background-color: #003366;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      margin: 0 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0055aa;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="header">
+    <p><span class="hefont">中国古代自然科学热点</span></p>
+  </div>
+
+  <div class="content">
+    <div class="tagBall">
+      <a class="tag" href="地动仪.html"><span>地动仪</span></a>
+      <a class="tag" href="浑天仪.html"><span>浑天仪</span></a>
+      <a class="tag" href="#"><span>圆周率</span></a>
+      <a class="tag" href="#"><span>张衡</span></a>
+      <a class="tag" href="本草纲目.html"><span>本草纲目</span></a>
+      <a class="tag" href="#"><span>李时珍</span></a>
+      <a class="tag" href="针灸.html"><span>针灸</span></a>
+      <a class="tag" href="蔡伦造纸.html"><span>蔡伦造纸</span></a>
+      <a class="tag" href="活字印刷.html"><span>活字印刷</span></a>
+      <a class="tag" href="都江堰.html"><span>都江堰</span></a>
+      <a class="tag" href="农书.html"><span>农书</span></a>
+      <a class="tag" href="天工开物.html"><span>天工开物</span></a>
+      <a class="tag" href="炼丹术.html"><span>炼丹术</span></a>
+      <a class="tag" href="火药.html"><span>火药</span></a>
+      <a class="tag" href="司南.html"><span>司南</span></a>
+      <a class="tag" href="勾股定理.html"><span>勾股定理</span></a>
+      <a class="tag" href="九章算术.html"><span>九章算术</span></a>
+      <a class="tag" href="水钟.html"><span>水钟</span></a>
+      <a class="tag" href="星图.html"><span>星图</span></a>
+      <a class="tag" href="丝绸.html"><span>丝绸</span></a>
+      <a class="tag" href="水经注.html"><span>水经注</span></a>
+      <a class="tag" href="齐民要术.html"><span>齐民要术</span></a>
+      <a class="tag" href="农政全书.html"><span>农政全书</span></a>
+      <a class="tag" href="望闻问切.html"><span>三才理论</span></a>
+      <a class="tag" href="#"><span>望闻问切</span></a>
+      <a class="tag" href="#"><span>麻沸散</span></a>
+      <a class="tag" href="陶瓷烧制.html"><span>陶瓷烧制</span></a>
+      <a class="tag" href="二十四节气.html"><span>二十四节气</span></a>
+      <a class="tag" href="#"><span>墨子</span></a>
+    </div>
+
+    <div class="reference-box">
+      <h3>相关文献资料</h3>
+      <ul>
+        <li><a href="https://book.douban.com/subject/2419991/" target="_blank">《中国科学技术史》——李约瑟</a></li>
+    <li><a href="https://baike.baidu.com/item/本草纲目" target="_blank">《本草纲目》——李时珍</a></li>
+    <li><a href="https://baike.baidu.com/item/天工开物" target="_blank">《天工开物》——宋应星</a></li>
+    <li><a href="https://baike.baidu.com/item/中国古代四大发明" target="_blank">《古代中国的发明与发现》</a></li>
+    <li><a href="https://baike.baidu.com/item/张衡" target="_blank">《张衡与地动仪研究》</a></li>
+    <li><a href="https://baike.baidu.com/item/祖冲之" target="_blank">《祖冲之与数学》</a></li>
+    <li><a href="https://baike.baidu.com/item/中国医学史" target="_blank">《中国古代医学发展简史》</a></li>
+    <li><a href="https://baike.baidu.com/item/中国古代天文学" target="_blank">《中国古代天文学成就》</a></li>
+    <li><a href="https://baike.baidu.com/item/九章算术" target="_blank">《九章算术与中国数学传统》</a></li>
+        <li><a href="https://www.gov.cn/xinwen/2016-07/14/content_5091310.htm?utm_source=chatgpt.com" target="_blank">《中科院遴选出88项中国古代重大科技发明创造 》</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="button-container">
+    <button class="btn" onclick="window.location.href='../主页/首页.html';">返回首页</button>
+    <button class="btn" onclick="window.location.href='../index.html';">查看地图</button>
+  </div>
+</div>
+
+<footer class="page-footer">
+  © 2025 中国古代科学成就词云
+</footer>
+
+<script>
+  var tagEle = document.querySelectorAll(".tag"),
+    paper = document.querySelector(".tagBall"),
+    RADIUS = 300,
+    fallLength = 500,
+    tags = [],
+    angleX = Math.PI / 500,
+    angleY = Math.PI / 500,
+    CX = paper.offsetWidth / 2,
+    CY = paper.offsetHeight / 2,
+    EX = paper.offsetLeft + document.body.scrollLeft + document.documentElement.scrollLeft,
+    EY = paper.offsetTop + document.body.scrollTop + document.documentElement.scrollTop;
+
+  function tag(ele, x, y, z) {
+    this.ele = ele;
+    this.x = x;
+    this.y = y;
+    this.z = z;
+    this.fontBase = Math.random() * (36 - 12) + 12;
+  }
+
+  tag.prototype = {
+    move: function () {
+      var scale = fallLength / (fallLength - this.z);
+      var alpha = (this.z + RADIUS) / (2 * RADIUS);
+      this.ele.style.fontSize = this.fontBase * scale + "px";
+      this.ele.style.opacity = alpha + 0.5;
+      this.ele.style.zIndex = parseInt(scale * 100);
+      this.ele.style.left = this.x + CX - this.ele.offsetWidth / 2 + "px";
+      this.ele.style.top = this.y + CY - this.ele.offsetHeight / 2 + "px";
+    }
+  };
+
+  function init() {
+    for (var i = 0; i < tagEle.length; i++) {
+      var k = (2 * (i + 1) - 1) / tagEle.length - 1;
+      var a = Math.acos(k);
+      var b = a * Math.sqrt(tagEle.length * Math.PI);
+      var x = RADIUS * Math.sin(a) * Math.cos(b);
+      var y = RADIUS * Math.sin(a) * Math.sin(b);
+      var z = RADIUS * Math.cos(a);
+      var t = new tag(tagEle[i], x, y, z);
+      tagEle[i].style.color = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+      tags.push(t);
+      t.move();
+    }
+  }
+
+  function animate() {
+    setInterval(function () {
+      rotateX();
+      rotateY();
+      tags.forEach(tag => tag.move());
+    }, 17);
+  }
+
+  function rotateX() {
+    var cos = Math.cos(angleX), sin = Math.sin(angleX);
+    tags.forEach(function (tag) {
+      var y1 = tag.y * cos - tag.z * sin;
+      var z1 = tag.z * cos + tag.y * sin;
+      tag.y = y1;
+      tag.z = z1;
+    });
+  }
+
+  function rotateY() {
+    var cos = Math.cos(angleY), sin = Math.sin(angleY);
+    tags.forEach(function (tag) {
+      var x1 = tag.x * cos - tag.z * sin;
+      var z1 = tag.z * cos + tag.x * sin;
+      tag.x = x1;
+      tag.z = z1;
+    });
+  }
+
+  paper.addEventListener("mousemove", function (event) {
+    var x = event.clientX - EX - CX;
+    var y = event.clientY - EY - CY;
+    angleY = x * 0.0001;
+    angleX = y * 0.0001;
+  });
+
+  init();
+  animate();
+</script>
+
+</body>
+</html>

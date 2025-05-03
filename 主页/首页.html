@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <title>千年智汇：中华古代自然科学的光辉印记</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: rgba(255, 204, 102, 0.6);
+      color: #fff;
+    }
+
+    /* 云彩容器 */
+    .clouds {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* 使云彩位于页面内容后面 */
+    }
+
+    /* 单个云朵的样式 */
+    .cloud {
+      position: absolute;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1); /* 给云朵增加轻微阴影效果 */
+    }
+
+    /* 云朵的大小和形状 */
+    .cloud-1 {
+      width: 150px;
+      height: 100px;
+      top: 20%;
+      left: 10%;
+      animation: moveClouds 40s linear infinite;
+    }
+
+    .cloud-2 {
+      width: 180px;
+      height: 120px;
+      top: 30%;
+      left: 50%;
+      animation: moveClouds 60s linear infinite;
+    }
+
+    .cloud-3 {
+      width: 120px;
+      height: 80px;
+      top: 50%;
+      left: 70%;
+      animation: moveClouds 50s linear infinite;
+    }
+
+    .cloud-4 {
+      width: 200px;
+      height: 130px;
+      top: 70%;
+      left: 30%;
+      animation: moveClouds 55s linear infinite;
+    }
+
+    /* 云朵形状的设计 */
+    .cloud:before,
+    .cloud:after {
+      content: '';
+      position: absolute;
+      background-color: #fff;
+      border-radius: 50%;
+    }
+
+    /* 扩展云朵的形状 */
+    .cloud-1:before {
+      width: 70px;
+      height: 70px;
+      top: -25px;
+      left: 25px;
+    }
+
+    .cloud-1:after {
+      width: 80px;
+      height: 80px;
+      top: -40px;
+      left: 70px;
+    }
+
+    .cloud-2:before {
+      width: 100px;
+      height: 80px;
+      top: -20px;
+      left: 40px;
+    }
+
+    .cloud-2:after {
+      width: 120px;
+      height: 100px;
+      top: -50px;
+      left: 100px;
+    }
+
+    .cloud-3:before {
+      width: 50px;
+      height: 50px;
+      top: -15px;
+      left: 20px;
+    }
+
+    .cloud-3:after {
+      width: 70px;
+      height: 70px;
+      top: -25px;
+      left: 60px;
+    }
+
+    .cloud-4:before {
+      width: 90px;
+      height: 90px;
+      top: -30px;
+      left: 50px;
+    }
+
+    .cloud-4:after {
+      width: 110px;
+      height: 100px;
+      top: -40px;
+      left: 120px;
+    }
+
+    /* 云朵移动动画 */
+    @keyframes moveClouds {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    /* Hero 部分 */
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1601046018961-3eede1e02f08?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      height: 100vh;
+      color: #FFF8DC;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      border-right: .15em solid orange;
+      white-space: nowrap;
+      overflow: hidden;
+      animation:
+        typing 4s steps(40, end),
+        blink-caret .75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange; }
+    }
+
+    .intro {
+      font-size: 1.1em;
+      max-width: 900px;
+      margin: 20px auto;
+      opacity: 0;
+      animation: fadeIn 2s ease-in forwards;
+      animation-delay: 4.5s;
+      line-height: 1.8;
+    }
+
+    .rhombs {
+      margin-top: 40px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeIn 2s ease-in forwards;
+      animation-delay: 6s;
+    }
+
+    .rhomb-wrapper {
+      perspective: 1000px;
+    }
+
+    .rhomb {
+      display: table-cell;
+      width: 250px;
+      height: 250px;
+      border: 3px solid #fff;
+      background-color: #041527;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      animation: pulsate 0.8s infinite alternate ease-out;
+    }
+
+    .flipper {
+      position: relative;
+      transition: transform 0.8s ease-in-out;
+      transform-style: preserve-3d;
+    }
+
+    .flip-container:hover .flipper {
+      transform: rotateX(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      top: 0;
+      left: 0;
+    }
+
+    .front {
+      z-index: 2;
+    }
+
+    .back {
+      background-color: #fff;
+      color: #000;
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+
+    .front-content, .back-content {
+      display: table-cell;
+      width: 250px;
+      height: 250px;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    .rhomb img {
+      display: block;
+      margin: auto;
+      max-width: 60%;
+      max-height: 60%;
+      object-fit: contain;
+      transform: rotate(-45deg);
+    }
+
+    .back-content .color {
+      color: #00C6FF;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .back-content .big {
+      display: block;
+      font-size: 26px;
+      line-height: 30px;
+      padding: 10px 0;
+    }
+
+    .back-content .text {
+      width: 180px;
+      margin: 0 auto;
+      color: #555;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .compass-container {
+      position: absolute;
+      top: 70%;
+      left: 85%;
+      transform: translate(-50%, -50%);
+      animation: rotateCompass 10s linear infinite;
+      z-index: 1;
+    }
+
+    .compass {
+      width: 120px;
+      height: 120px;
+    }
+
+    @keyframes rotateCompass {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes pulsate {
+      from { box-shadow: 0 0 0 0px rgba(254,254,254,0.07); }
+      to   { box-shadow: 0 0 0 10px rgba(254,254,254,0.07); }
+    }
+
+    @media screen and (max-width: 768px) {
+      h1 { font-size: 2em; }
+      .intro { font-size: 0.95em; }
+
+      .rhomb, .front-content, .back-content {
+        width: 180px;
+        height: 180px;
+      }
+
+      .back-content .big {
+        font-size: 18px;
+      }
+
+      .back-content .text {
+        font-size: 14px;
+        width: 140px;
+      }
+
+      .compass-container {
+        top: 85%;
+        left: 90%;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+    }
+
+    .page-footer {
+  background-color: #00165e;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards, slideUp 1s ease-out forwards;
+  animation-delay: 7s, 7s;
+}
+
+/* 页脚的背景色渐变动画 */
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    background-color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: translateY(0);
+    background-color: #00165e;
+  }
+}
+
+/* 文字渐现动画 */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* 鼠标悬停时，链接的动画效果 */
+.page-footer a {
+  text-decoration: none;
+  color: #00C6FF;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.page-footer a:hover {
+  color: #FF6347;  /* Hover时文字颜色变成红色 */
+  transform: translateX(5px); /* 向右偏移 */
+}
+
+@media screen and (max-width: 768px) {
+  .page-footer {
+    font-size: 0.8em;
+    padding: 15px;
+  }
+}
+
+
+
+    .flipper:hover .front .front-content {
+    visibility: hidden;
+    opacity: 0;
+  }
+  </style>
+</head>
+<body>
+
+<!-- 云彩 -->
+<div class="clouds">
+  <div class="cloud cloud-1"></div>
+  <div class="cloud cloud-2"></div>
+  <div class="cloud cloud-3"></div>
+  <div class="cloud cloud-4"></div>
+</div>
+
+<div class="hero">
+  <div class="overlay">
+    <h1>千年智汇：中华古代自然科学的光辉印记</h1>
+
+    <p class="intro">
+      中华文明历经千年，智慧如星辰般熠熠生辉。在自然科学的浩瀚天地中，中国古代先贤以敏锐的观察力和卓越的创造力，在基础科学、地球科学、生命科学、医学、农学、工程技术、化学与化工等诸多领域取得了令人惊叹的成就。
+      <br><br>
+      他们测天绘地、探索人体奥秘，发展农业技艺，发明工程器械，炼石制药，构筑起一座座人类智慧的丰碑。从《九章算术》的逻辑严密到《黄帝内经》的生命哲思，从都江堰的水利工程到炼丹术背后的化学原理，这些辉煌印记不仅是中华文明的重要组成，更对世界科技发展产生了深远影响。
+      <br><br>
+      《千年智汇：中华古代自然科学的光辉印记》，将引领我们穿越历史迷雾，重温那一段段写满智慧与探索的科学传奇。
+    </p>
+
+    <!-- 替换后的导航卡片模块 -->
+    <div class="rhombs">
+  <!-- 卡片1 -->
+  <div class="rhomb-wrapper flip-container">
+    <a href="..\index.html">
+      <div class="rhomb flipper">
+        <div class="front">
+          <div class="front-content">
+            <img src="圆饼图.jpg" alt="Image">
+          </div>
+        </div>
+        <div class="back">
+          <div class="back-content">
+            <div class="color"><span class="big">历年数据总览</span></div>
+            <p class="text">汇聚中国各省市古代自然科学核心成就，以图表形式直观展示。</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- 卡片2 -->
+  <div class="rhomb-wrapper flip-container">
+    <a href="..\单独介绍\词云.html">
+      <div class="rhomb flipper">
+        <div class="front">
+          <div class="front-content">
+            <img src="笔.jpeg" alt="Image">
+          </div>
+        </div>
+        <div class="back">
+          <div class="back-content">
+            <div class="color"><span class="big">中国古代自然科学成就热点展示</span></div>
+            <p class="text">用新奇有趣的方式，带你了解与中国古代自然科学相关热点。</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- 卡片3 -->
+  <div class="rhomb-wrapper flip-container">
+    <a href="..\单独介绍\三才理论.html">
+      <div class="rhomb flipper">
+        <div class="front">
+          <div class="front-content">
+            <img src="书页.gif" alt="Image"> <!-- 图书图标 -->
+          </div>
+        </div>
+        <div class="back">
+          <div class="back-content">
+            <div class="color"><span class="big">中国古代自然科学图书</span></div>
+            <p class="text">回顾先贤经典之作，汲取历史智慧光芒。</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+
+    <!-- 指南针 -->
+    <div class="compass-container">
+      <svg class="compass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none"/>
+        <line x1="12" y1="2" x2="12" y2="6" stroke="white" stroke-width="2"/>
+        <line x1="12" y1="12" x2="12" y2="20" stroke="white" stroke-width="2"/>
+        <line x1="2" y1="12" x2="6" y2="12" stroke="white" stroke-width="2"/>
+        <line x1="18" y1="12" x2="22" y2="12" stroke="white" stroke-width="2"/>
+        <line x1="12" y1="12" x2="16" y2="16" stroke="white" stroke-width="2"/>
+        <line x1="12" y1="12" x2="8" y2="16" stroke="white" stroke-width="2"/>
+        <line x1="12" y1="12" x2="16" y2="8" stroke="white" stroke-width="2"/>
+        <line x1="12" y1="12" x2="8" y2="8" stroke="white" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+</div>
+<!-- 页脚 -->
+<footer class="page-footer">
+  <p>使用地图审图号为 GS（2024）0650 号，具体网址为 <a href="https://cloudcenter.tianditu.gov.cn/administrativeDivision" target="_blank" style="color: #00C6FF; text-decoration: none;">https://cloudcenter.tianditu.gov.cn/administrativeDivision</a>（需登陆查看）</p>
+</footer>
+
+</body>
+</html>

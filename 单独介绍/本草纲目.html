@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>本草纲目</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "微软雅黑", sans-serif;
+      background: #121212;
+      color: #e0e0e0;
+      line-height: 1.8;
+      padding-bottom: 60px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .stars, .stars2, .stars3 {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-repeat: repeat;
+      background-size: contain;
+      z-index: -1;
+      animation: moveStars 200s linear infinite;
+    }
+
+    .stars { background-image: url("https://www.transparenttextures.com/patterns/stardust.png"); }
+    .stars2 { background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png"); animation-duration: 300s; opacity: 0.3; }
+    .stars3 { background-image: url("https://www.transparenttextures.com/patterns/noise-pattern-with-crosslines.png"); animation-duration: 400s; opacity: 0.2; }
+
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: 10000px 10000px; }
+    }
+
+    header {
+      background: rgba(30, 30, 30, 0.8);
+      color: white;
+      padding: 60px 20px 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      z-index:1000;
+    }
+
+    @keyframes fadeInHeaderText {
+      to { opacity: 1; }
+    }
+
+    header h1.typewriter {
+      margin: 0 auto;
+      letter-spacing: .05em;
+      font-size: 36px;
+      max-width: 100%;
+      color: #fdd835;
+      opacity: 0;
+      animation: fadeInHeaderText 0.3s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    .container {
+      max-width: 60%;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: rgba(0, 0, 0, 0);
+      border-radius: 10px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInContainer 0.3s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    @keyframes fadeInContainer {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section, .image-box, .highlight {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInSection 0.3s ease forwards;
+    }
+
+    @keyframes fadeInSection {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section h2 {
+      font-size: 24px;
+      color: #ffee58;
+      margin-bottom: 10px;
+      border-left: 4px solid #ffee58;
+      padding-left: 10px;
+    }
+
+    .section p {
+      font-size: 17px;
+    }
+
+    .highlight {
+      background: #1e1e1e;
+      padding: 10px;
+      border-left: 4px solid #ffb300;
+      margin: 15px 0;
+    }
+
+    .image-box {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .image-box img {
+      max-width: 100%;
+      max-height: 300px;
+      height: auto;
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 6px rgba(255, 255, 255, 0.1);
+    }
+
+    .image-box caption {
+      font-size: 14px;
+      color: #ccc;
+      margin-top: 8px;
+      display: block;
+    }
+
+    .references {
+      background: #111;
+      padding: 20px;
+      border-top: 2px solid #666;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInSection 0.3s ease forwards;
+      animation-delay: 1.6s;
+    }
+
+    .references h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #f1f1f1;
+    }
+
+    .references a {
+      color: #ffee58;
+      text-decoration: none;
+    }
+
+    .references a:hover {
+      color: #fdd835;
+      text-decoration: underline;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 10px 20px;
+      background-color: #fbc02d;
+      color: #212121;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-radius: 5px;
+    }
+
+    .back-btn:hover {
+      background-color: #f9a825;
+      transform: scale(1.05);
+    }
+
+    .hover-zone {
+      position: fixed;
+      top: 13.8%;
+      width: 18vw;
+      height: calc(100% - 100px);
+      z-index: 1;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0);
+      transition: background-color 0.3s ease;
+    }
+
+    .hover-zone:hover {
+      background-color: rgba(255, 255, 255, 0.01);
+    }
+
+    .left-zone { left: 0; }
+    .right-zone { right: 0; }
+
+    .arrow-indicator {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) translateX(0);
+      font-size: 32px;
+      font-weight: bold;
+      color: #e0c85f;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+      white-space: nowrap;
+      text-shadow: 0 0 6px rgba(255, 223, 0, 0.3);
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%   { text-shadow: 0 0 4px rgba(255, 223, 0, 0.2); }
+      50%  { text-shadow: 0 0 8px rgba(255, 223, 0, 0.5); }
+      100% { text-shadow: 0 0 4px rgba(255, 223, 0, 0.2); }
+    }
+
+    .hover-zone:hover .arrow-indicator {
+      opacity: 1;
+      transform: translateY(-50%) translateX(5px) scale(1.05);
+    }
+
+    .left-zone .arrow-indicator { left: 20px; }
+    .right-zone .arrow-indicator { right: 20px; }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      color: #ccc;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
+
+<header>
+  <h1 class="typewriter">李时珍与《本草纲目》</h1>
+</header>
+
+<div class="container">
+  <div class="section" style="animation-delay: 0.6s;">
+    <h2>背景介绍</h2>
+    <p>《本草纲目》是明代医药学家李时珍历时27年（1552-1578）编撰的药物学巨著。全书52卷，收录药物1892种（新增374种），附药方11096个，插图1160幅。1593年金陵胡承龙刊刻的初刻本（现藏中国中医科学院）是最早版本，2011年入选《世界记忆名录》。</p>
+  </div>
+
+  <div class="image-box" style="animation-delay: 0.9s;">
+    <img src="../images/本草纲目.png" alt="《本草纲目》书影">
+    <caption>金陵版《本草纲目》内页（来源：中国国家图书馆）</caption>
+  </div>
+
+  <div class="section" style="animation-delay: 1.1s;">
+    <h2>科学意义</h2>
+    <p>1. 创新分类体系：按"从微至巨"原则分为16部60类<br>
+    2. 确立药物鉴定标准：提出"辨状论质"理论<br>
+    3. 记载提取技术：如樟脑蒸馏法、五倍子制没食子酸<br>
+    4. 纠正前人谬误：指出"水银无毒"等错误记载<br>
+    达尔文在《动物和植物在家养下的变异》中多次引用，称其为"中国古代百科全书"。</p>
+  </div>
+
+  <div class="section" style="animation-delay: 1.3s;">
+    <h2>影响与传承</h2>
+    <p>- 17世纪传入日本，成为汉方医学基础教材<br>
+    - 1735年法文节译本影响欧洲植物分类学<br>
+    - 现代研究发现其记载的800余种药物确有疗效<br>
+    - 2023年诺贝尔生理学奖得主屠呦呦受其启发发现青蒿素</p>
+  </div>
+
+  <div class="references">
+    <h3>相关文献资料</h3>
+    <ul>
+      <li><a href="http://www.zyszy.cn/zyzs/bcgm/" target="_blank">中国中医科学院《本草纲目》数字馆</a></li>
+      <li><a href="https://www.nature.com/articles/493164a" target="_blank">Nature：Li Shizhen's legacy</a></li>
+    </ul>
+  </div>
+  <a class="back-btn" href="词云.html">← 返回词云页面</a>
+  <a class="back-btn" href="../主页/首页.html">← 返回首页</a>
+  <a class="back-btn" href="../index.html">← 查看地图</a>
+</div>
+
+<div class="hover-zone left-zone" onclick="window.location.href='望闻问切.html'">
+  <div class="arrow-indicator">点击翻页</div>
+</div>
+<div class="hover-zone right-zone" onclick="window.location.href='水经注.html'">
+  <div class="arrow-indicator">点击翻页</div>
+</div>
+
+<footer>
+  © 2025 中国古代科学成就 · 展示页面
+</footer>
+
+</body>
+</html>
